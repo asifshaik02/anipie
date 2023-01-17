@@ -1,0 +1,26 @@
+query ($id: Int) {
+  Character(id: $id) {
+    name {
+      full
+    }
+    image {
+      medium
+    }
+    description
+    gender
+    age
+    media(perPage: 6) {
+      nodes {
+        id
+        title {
+          romaji
+          english
+          native
+        }
+        coverImage {
+          medium
+        }
+      }
+    }
+  }
+}

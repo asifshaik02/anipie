@@ -1,0 +1,18 @@
+query ($query: String, $page: Int) {
+  Page(page: $page, perPage: 10) {
+    media(search: $query, sort: SEARCH_MATCH) {
+      id
+      title {
+        english
+        romaji
+        native
+      }
+      format
+    }
+    pageInfo {
+      hasNextPage
+      currentPage
+      lastPage
+    }
+  }
+}

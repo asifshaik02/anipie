@@ -1,0 +1,22 @@
+query ($name: String, $type: MediaType, $status: MediaListStatus, $page: Int) {
+  Page(page: $page, perPage: 10) {
+    mediaList(userName: $name, type: $type, status: $status) {
+      score
+      progress
+      media {
+        id
+        title {
+          english
+          romaji
+          native
+        }
+        episodes
+      }
+    }
+    pageInfo {
+      perPage
+      currentPage
+      hasNextPage
+    }
+  }
+}
