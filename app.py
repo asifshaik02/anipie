@@ -1,8 +1,8 @@
 import markdown
+from flask import Flask
 import markdown.extensions.fenced_code
 import markdown.extensions.codehilite
 from pygments.formatters import HtmlFormatter
-from flask import Flask
 from tracker import Anilist, Anime, Character, User, Manga, get_shedule
 
 app = Flask(__name__)
@@ -13,6 +13,7 @@ def index():
     md_template_string = markdown.markdown(
         readme_file.read(), extensions=["fenced_code", "codehilite"]
     )
+    md_template_string = md_template_string.replace('class="err"','class="n"')
     
     # Generate Css for syntax highlighting
     formatter = HtmlFormatter(style="emacs",full=True,cssclass="codehilite")

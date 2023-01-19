@@ -4,8 +4,13 @@ This is an REST-API made using [Anilist graphql API](https://anilist.gitbook.io/
 
 # Endpoints
 
-A list of Endpoints provided:
-**Base url**: `http://anipie.glitch.me`
+A list of Endpoints provided:  
+
+
+**Base url**: 
+```
+http://anipie.glitch.me
+```
 
 ## User
 
@@ -145,3 +150,5 @@ A list of Endpoints provided:
     query: search keyword
     page: result page number
 ```
+
+**Link to this [repo](https://github.com/asifshaik02/anipie)**
