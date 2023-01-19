@@ -1,3 +1,7 @@
+import markdown
+import markdown.extensions.fenced_code
+import markdown.extensions.codehilite
+from pygments.formatters import HtmlFormatter
 from flask import Flask
 from tracker import Anilist, Anime, Character, User, Manga, get_shedule
 
@@ -5,7 +9,18 @@ app = Flask(__name__)
 
 @app.route('/')
 def index():
-    return ""
+    readme_file = open("README.md", "r")
+    md_template_string = markdown.markdown(
+        readme_file.read(), extensions=["fenced_code", "codehilite"]
+    )
+    
+    # Generate Css for syntax highlighting
+    formatter = HtmlFormatter(style="emacs",full=True,cssclass="codehilite")
+    css_string = formatter.get_style_defs()
+    md_css_string = "<style>" + css_string + "</style>"
+    
+    md_template = md_css_string + md_template_string
+    return md_template
 
 @app.route("/user/<name>")
 def profile(name):
