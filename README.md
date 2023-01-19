@@ -14,7 +14,7 @@ http://anipie.glitch.me
 
 ## User
 
-**Endpoint** : `/<username>`
+**Endpoint** : `/user/<username>`
 
 **Output**: 
 ```
